@@ -90,5 +90,8 @@ def play(pyMus):
             extrapadding = ""
             if len(note) < 10:
                 extrapadding = (10 - len(note)) * " "
-            print(song[i][0] + " " + extrapadding + str(duration).zfill(5))
+            fast_warn = ""
+            if duration <= 120 and duration > 5:
+                fast_warn = " [TOO FAST - MAY PLAY INCORRECTLY]"
+            print(song[i][0] + " " + extrapadding + str(duration).zfill(5) + fast_warn)
             playNote(song[i][0], duration)
